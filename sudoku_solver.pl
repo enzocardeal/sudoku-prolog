@@ -18,7 +18,7 @@ sudoku(Rows) :-
         % Restrição: Todos os números em cada linha devem ser distintos.
         maplist(all_distinct, Rows),
         
-        % Transpõe as linhas para obter as colunas.
+        % Transpõe as linhas para obter as colunas como linhas.
         transpose(Rows, Columns),
         
         % Restrição: Todos os números em cada coluna devem ser distintos.
@@ -34,6 +34,8 @@ sudoku(Rows) :-
 blocks([], [], []).
 
 % Define os blocos 3x3 e verifica se os números são distintos.
+% Recebe 3 linhas com no máximo 9 elementos cada. Pega os 3 primeiros elementos de cada linha, montando assim um bloco 3x3.
+% O resto dos elementos (Bs1, Bs2 e Bs3) são processados de forma recursiva
 blocks([A,B,C|Bs1], [D,E,F|Bs2], [G,H,I|Bs3]) :-
         % Restrição: Os números de um bloco 3x3 devem ser distintos.
         all_distinct([A,B,C,D,E,F,G,H,I]),

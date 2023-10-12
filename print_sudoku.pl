@@ -46,7 +46,7 @@ print_row([], _) :-
 print_row([Cell|Rest], N) :-
     print_cell(Cell),  % Imprime a célula atual.
     % Se N é múltiplo de 3, imprime um separador. Caso contrário, não faz nada.
-    (N mod 3 =:= 0 -> write('|') ; true),
+    (N mod 3 =:= 0, N \=9 -> write('|') ; true),
     N1 is N + 1,  % Incrementa o contador de células.
     print_row(Rest, N1).
 
