@@ -1,5 +1,3 @@
-:- consult(print_sudoku).
-
 % Importa a biblioteca clpfd, que fornece ferramentas para lidar com problemas de satisfação de restrições.
 :- use_module(library(clpfd)).
 
@@ -42,19 +40,3 @@ blocks([A,B,C|Bs1], [D,E,F|Bs2], [G,H,I|Bs3]) :-
         
         % Processa o próximo conjunto de elementos.
         blocks(Bs1, Bs2, Bs3).
-
-% Exemplo de um problema Sudoku para ser resolvido.
-problem(1, [[_,_,_, _,_,_, _,_,_],
-            [_,_,_, _,_,3, _,8,5],
-            [_,_,1, _,2,_, _,_,_],
-            [_,_,_, 5,_,7, _,_,_],
-            [_,_,4, _,_,_, 1,_,_],
-            [_,9,_, _,_,_, _,_,_],
-            [5,_,_, _,_,_, _,7,3],
-            [_,_,2, _,1,_, _,_,_],
-            [_,_,_, _,4,_, _,_,9]]).
-
-% Exemplo de como usar o solver.
-/** <examples>
-?- problem(1, Rows), sudoku(Rows).
-*/
